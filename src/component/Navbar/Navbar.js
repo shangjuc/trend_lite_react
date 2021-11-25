@@ -79,7 +79,7 @@ function Navbar(props) {
 
                 {btn_rows}
             </ul>
-            <input type="file"></input>
+            {/* <input type="file"></input> */}
         </div>
     );
 }

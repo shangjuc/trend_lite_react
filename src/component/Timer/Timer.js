@@ -3,15 +3,6 @@ import ReactDOM from 'react-dom';
 import './Timer.scss';
 
 
-// function Clock(props){
-//     return (
-//         <div className="container">
-//             <h1>Hello, {props.user}</h1>
-//             <h2>{props.date.toLocaleTimeString()}</h2>
-//         </div>
-//     )
-// }
-
 class Clock2 extends React.Component {
     constructor(props){
         super(props);
@@ -44,6 +35,15 @@ class Clock2 extends React.Component {
     }
 }
 
+function Clock(props) {
+    return (
+        <div className="container">
+            <h1>Hello, {props.user}</h1>
+            <h2>{props.date.toLocaleTimeString()}</h2>
+        </div>
+    )
+}
+
 function tick() {
     ReactDOM.render(
         <Clock2 user={'SJC'} />, 
@@ -52,7 +52,7 @@ function tick() {
 }
 
 function Timer() {
-    // setInterval(tick, 1000);
+    setInterval(tick, 1000);
 
     return ( 
         <div id="timer"></div>
