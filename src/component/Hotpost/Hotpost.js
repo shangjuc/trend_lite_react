@@ -32,7 +32,8 @@ function Hotpost(props) {
                 for(let i = 0; i < length; i++){
                     let item = myJson.data[0].fb_raw[i];
                     let time = format(item.ts, 'yyyy-MM-dd');
-                    rows.push(<TitleView key={i} hp_hash={i+1} hp_content={item.text} hp_ts={time} />)
+                    let time2 = format(item.ts, 'yyyy年MM月dd日');
+                    rows.push(<TitleView key={i} hp_hash={i+1} hp_content={item.text} hp_time={time} hp_time2={time2} hp_ts={item.ts}/>)
                 }
                 return rows;            
             })
@@ -90,7 +91,7 @@ function Hotpost(props) {
                 </div>
     
                 <ul>
-                    <TitleView className="th" hp_hash="#" hp_content ="內文" hp_ts="時間" />
+                    <TitleView className="th" hp_hash="#" hp_content ="內文" hp_time="時間" hp_ts="" />
                     {rows_shown}
                 </ul>
             </div>
@@ -113,11 +114,28 @@ function Hotpost(props) {
 }
 
 function TitleView(props) {
+    function toggle_card(e){
+        if(e.target.innerText === '#'){
+            return;
+        }
+        e.target.parentNode.classList.toggle("open");
+        console.log(e.target)
+    }
+    // let time_format = format(props.hp_ts, 'yyyy MM dd');
+    // let time3 = format(props.hp_ts, 'yyyy  MM月dd日');
     return (
         <li className="hp-li">
-            <div className="hp-hash">{props.hp_hash}</div>
-            <div className="hp-content">{props.hp_content}</div>
-            <div className="hp-time">{props.hp_ts}</div>
+            <div className="hp-row">
+                <div className="hp-hash" onClick={toggle_card}>{props.hp_hash}</div>
+                <div className="hp-content">{props.hp_content}</div>
+                <div className="hp-time">{props.hp_time}</div>
+            </div>
+            <div className="hp-card">
+                <h3>{props.hp_time2}</h3>
+                {/* <h3>{props.hp_ts}</h3> */}
+                <p>{props.hp_content}</p>
+                
+            </div>
         </li>
     )
 }
