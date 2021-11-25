@@ -1,0 +1,34 @@
+.hotpost-container {
+  background-color: #20232a;
+  padding: 100px;
+  ul {
+    li {
+      color: #FFF;
+      list-style: none;
+      display: flex;
+      height: 20px;
+      padding: 10px;
+      overflow: hidden;
+      border-bottom: 1px solid #FFF;
+      div{
+        padding: 0px 5px;
+        // text-align: left;
+      }
+      
+      div.hp-hash{
+        text-align: right;
+        flex-basis: 20px;
+      }
+
+      div.hp-content{
+        flex-basis: 100px;
+        flex-grow: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+
+    }
+  }
+}
