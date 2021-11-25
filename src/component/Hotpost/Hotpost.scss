@@ -1,8 +1,21 @@
 .hotpost-container {
   background-color: #282c34;
-  padding: 100px;
+  padding: 100px 5vw;
   color: #FFF;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .page-btn-container{
+    width: 100%;
+    max-width: 1000px;
+
+  }
   ul {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    max-width: 1000px;
     li {
       color: #FFF;
       list-style: none;

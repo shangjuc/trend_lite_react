@@ -49,7 +49,7 @@ function Hotpost(props) {
 
     function count_pages(rows = rows_full, max_per_page = HP.max_per_page){
         let last_page = Math.floor(rows.length / max_per_page);
-        console.log(rows)
+        // console.log(rows)
         let btn_arr = [];
         let btns = [];
         for (let i = 0; i < last_page; i++) {
@@ -61,7 +61,7 @@ function Hotpost(props) {
     }
 
     const pagination = (page_num, rows = rows_full, max_per_page = HP.max_per_page) => {
-        console.log(rows)
+        // console.log(rows)
         let new_rows = rows.slice((page_num - 1) * max_per_page, page_num * max_per_page)
         setRowsShown(new_rows);
         
@@ -76,15 +76,18 @@ function Hotpost(props) {
         
         return (
             <div className="hotpost-container">
-                {/* <button onClick={fetch_data}>Fetch</button> */}
-                {/* <button onClick={click_page} page_num="1">1</button>
-                <button onClick={click_page} page_num="2">2</button>
-                <button onClick={click_page} page_num="3">3</button> */}
-                {/* <PageButton click_page={click_page} page_num={5} />
-                <PageButton click_page={click_page} page_num={3} />
-                <PageButton click_page={click_page} page_num={1} /> */}
-                {/* {page_btns} */}
-                {page_btns.map(i => <PageButton click_page = { click_page } page_num = {i} />)}
+
+                <div className="page-btn-container">
+                    {/* <button onClick={fetch_data}>Fetch</button> */}
+                    {/* <button onClick={click_page} page_num="1">1</button>
+                    <button onClick={click_page} page_num="2">2</button>
+                    <button onClick={click_page} page_num="3">3</button> */}
+                    {/* <PageButton click_page={click_page} page_num={5} />
+                    <PageButton click_page={click_page} page_num={3} />
+                    <PageButton click_page={click_page} page_num={1} /> */}
+                    {/* {page_btns} */}
+                    {page_btns.map(i => <PageButton key={i} click_page = { click_page } page_num = {i} />)}
+                </div>
     
                 <ul>
                     <TitleView className="th" hp_hash="#" hp_content ="內文" hp_ts="時間" />
