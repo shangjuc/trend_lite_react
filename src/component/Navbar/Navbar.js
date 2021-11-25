@@ -57,7 +57,7 @@ function Navbar(props) {
             setNavIdx('');
         }
     } 
-    const nav_btn_arr = ['E', 'F', 'G'];
+    const nav_btn_arr = ['Timer', 'HotPost'];
     const nav_btn_arr2 = ['H', 'I', 'J'];
    
     // const nav_btn_arr = nav_btn_arr;
@@ -74,8 +74,8 @@ function Navbar(props) {
                 <NavButton nav_value='B' click_navbtn={click_navbtn} nav_index={nav_index}/>
                 <NavButton nav_value='C' click_navbtn={click_navbtn} nav_index={nav_index}/> */}
                 
-                {nav_btn_arr.map((value) => 
-                <NavButton key={value} nav_value={value} click_navbtn={click_navbtn} nav_index={nav_index} />)}
+                {nav_btn_arr.map(val => 
+                <NavButton key={val} nav_value={val} click_navbtn={click_navbtn} nav_index={nav_index} />)}
 
                 {btn_rows}
             </ul>

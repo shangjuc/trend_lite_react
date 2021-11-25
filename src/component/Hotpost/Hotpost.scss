@@ -1,6 +1,7 @@
 .hotpost-container {
   background-color: #282c34;
   padding: 100px;
+  color: #FFF;
   ul {
     li {
       color: #FFF;
@@ -33,16 +34,3 @@
   }
 }
 
-
-.page-button{
-  border: 1px solid #FFF;
-  background-color: transparent;
-  color: #FFF;
-  border-radius: 3px;
-  margin: 2px;
-  cursor: pointer;
-  &:hover{
-    background-color: turquoise;
-  }
-
-}
