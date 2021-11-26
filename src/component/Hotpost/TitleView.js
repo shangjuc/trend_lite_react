@@ -17,8 +17,8 @@ function TitleView(props) {
                 <div className="hp-time">{props.hp_item.time}</div>
             </div>
             <div className="hp-card">
+                <h3>{props.hp_item.pf}</h3>
                 <h3>{props.hp_item.time2}</h3>
-                {/* <h3>{props.hp_item.ts}</h3> */}
                 <p>{props.hp_item.content}</p>
 
             </div>
