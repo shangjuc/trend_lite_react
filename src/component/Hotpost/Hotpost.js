@@ -7,9 +7,15 @@ import TitleView from './TitleView';
 
 function Hotpost(props) {
     
-    const HP = { max_per_page: 10};
-    const [data_full, setDataFull] = useState([]);
+    const HP = { 
+        max_per_page: 10,
+        FB:{},
+        FORUM:{}
+    };
+    const [data_full_FB, setDataFull_FB] = useState([]);
+    const [data_full_FORUM, setDataFull_FORUM] = useState([]);
     const [page_btns, setPageBtns] = useState([]);
+    const [pf, setPF] = useState("");
     const [data_shown, setDataShown] = useState([]);
     const [error, setError] = useState();
 
@@ -26,21 +32,41 @@ function Hotpost(props) {
             const data = await fetch('http://localhost:3000/trendapi/api_analytics_hotpost')
             .then(r => r.json())
             .then(function (resp) {
-                let length = resp.data[0].fb_raw.length;
                 let arr = [];
-                for(let i = 0; i < length; i++){
-                    let item = resp.data[0].fb_raw[i];                    
-                    item.hash = i+1;
-                    item.time = format(item.ts,'yyyy-MM-dd HH:mm');
-                    item.time2 = format(item.ts,'yyyy年MM月dd日 HH:mm');
-                    // item.time = moment(item.ts).format('YYYY-MM-DD');
-                    // item.time2 = moment(item.ts).format('YYYY年MM月DD日');
-                    arr.push(item);
+                if("fb_raw" in resp.data[0]){
+                    let raw = resp.data[0]["fb_raw"];
+                    HP.FB.arr = [];
+                    for(let i = 0; i < raw.length; i++){
+                        let item = raw[i];
+                        item.pf = "FB";
+                        item.hash = i+1;
+                        item.time = format(item.ts,'yyyy-MM-dd HH:mm');
+                        item.time2 = format(item.ts,'yyyy年MM月dd日 HH:mm');
+                        item.content = item.text;
+                        HP.FB.arr.push(item);
+                    }
+                    setDataFull_FB(HP.FB.arr);
+                    setPF("FB")
+                    arr = HP.FB.arr;
                 }
-                // console.log(arr)
-                return arr;            
+                if("forum_raw" in resp.data[0]){
+                    let raw = resp.data[0]["forum_raw"];
+                    HP.FORUM.arr = [];
+                    for(let i = 0; i < raw.length; i++){
+                        let item = raw[i];      
+                        item.pf = "FORUM";              
+                        item.hash = i+1;
+                        item.time = format(item.ts,'yyyy-MM-dd HH:mm');
+                        item.time2 = format(item.ts,'yyyy年MM月dd日 HH:mm');
+                        HP.FORUM.arr.push(item);
+                    }
+                    setDataFull_FORUM(HP.FORUM.arr);
+                    setPF("FORUM")
+                    arr = HP.FORUM.arr;
+                }
+
+                return arr;
             })
-            setDataFull(data);
             count_pages(data);
             do_pagination(1, data);
 
@@ -51,7 +77,7 @@ function Hotpost(props) {
 
     }
 
-    const count_pages = (rows = data_full, max_per_page = HP.max_per_page) => {
+    const count_pages = (rows, max_per_page = HP.max_per_page) => {
         let last_page = Math.floor(rows.length / max_per_page);
         let btn_arr = [];
         for (let i = 0; i < last_page; i++) {
@@ -60,30 +86,55 @@ function Hotpost(props) {
         setPageBtns(btn_arr);
     }
 
-    const do_pagination = (page_num, rows = data_full, max_per_page = HP.max_per_page) => {
+    const do_pagination = (page_num, rows, max_per_page = HP.max_per_page) => {
         let new_rows = rows.slice((page_num - 1) * max_per_page, page_num * max_per_page)
         setDataShown(new_rows);
     }
 
     const click_page = (e) =>{
         let page_num = Number(e.target.getAttribute("page_num"));
-        do_pagination(page_num, data_full);
+        if (pf === "FB") {
+            do_pagination(page_num, data_full_FB);
+        } else if (pf === 'FORUM'){
+            do_pagination(page_num, data_full_FORUM);
+        }
+
     }
 
-    if(data_full.length > 0){
+    const click_pf = (e) => {
+        let pf = String(e.target.getAttribute("pf"));
+        // console.log(pf)
+        setPF(pf);
+        if(pf === "FB"){
+            count_pages(data_full_FB)
+            do_pagination(1, data_full_FB);
+        }else if(pf === "FORUM"){
+            count_pages(data_full_FORUM)
+            do_pagination(1, data_full_FORUM);
+        }
+    }
+
+    if(data_full_FB.length > 0){
         
         return (
             <div className="hotpost-container">
 
+                <div className="page-btn-container">
+                    <button onClick={click_pf} pf="FB">FB</button>
+                    <button onClick={click_pf} pf="FORUM">FORUM</button>
+                </div>
+    
                 <div className="page-btn-container">
                     {page_btns.map(item => 
                     <PageButton key={item} click_page = { click_page } page_num = {item} />)}
                 </div>
     
                 <ul>
-                    <TitleView className="th" hp_hash="#" hp_content ="內文" hp_time="時間" hp_ts="" />
+                    <TitleView hp_item={{hash:"#",pf:"渠道",content:"內容",time:'時間'}}
+                    />
                     {data_shown.map((item, i) => 
-                    <TitleView key={item.hash} hp_hash={item.hash} hp_content={item.text} hp_time={item.time} hp_time2={item.time2} hp_ts={item.ts} />)}
+                    <TitleView key={item.hash} hp_item={item} />)
+                    }
                 </ul>
             </div>
         )
