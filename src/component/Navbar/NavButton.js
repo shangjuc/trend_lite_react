@@ -23,7 +23,7 @@ function NavButton(props) {
             onClick={props.click_navbtn}
             nav_value={props.nav_value}
             nav_index={props.nav_index}
-        >{props.nav_value}
+        ><a href={props.nav_value}>{props.nav_value}</a>
             <div className={'droplist '} hidden={show_list ? false : true}>
                 <ul>
                     {list_items}

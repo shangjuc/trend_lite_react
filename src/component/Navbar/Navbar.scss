@@ -50,17 +50,20 @@
         border-color: lightblue;
         // color: #20232a;
       }
+      a{
+        color: #FFF;
+      }
       span {
         line-height: 16px;
       }
     }
     .droplist {
       position: absolute;
-      margin-left: -20px;
+      margin-left: 0px;
       color: white;
       background-color: #20232a;
       box-sizing: border-box;
-      margin-top: 25px;
+      margin-top: 45px;
 
       ul {
         display: flex;
