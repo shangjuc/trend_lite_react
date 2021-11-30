@@ -1,51 +1,8 @@
-import React, { useState, useEffect, useCallback }  from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import moment from 'moment';
 import Plot from 'react-plotly.js';
-import './PlotlyChart.scss';
 
-function PlotlyChart(props) {
-    
-    // const [data, setData] = useState([]);
-
-    useEffect(() => {
-        // 使用瀏覽器 API 更新文件標題
-        document.title = `Plotly Charts`;
-    });
-
-
-
-    // render
-    if (true){
-        return (
-            <div>
-                {/* <PlotlyBasic/> */}
-                <PlotlyLineChart/>
-            </div>
-        )
-    } 
-}
-
-function PlotlyBasic(){
-
-    const data = [
-        {
-            x: [1, 2, 3],
-            y: [20, 6, 3],
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: { color: 'red' },
-        },
-        { type: 'bar', x: [1, 2, 3], y: [2, 5, 3] },
-    ];
-    const layout = { width: 520, height: 540, title: 'A Fancy Plot' };
-    return (
-        <div className="chart-container">
-            <Plot data={data} layout={layout} />
-        </div>
-    )
-}
-
-function PlotlyLineChart(){
+function LineChart() {
 
     const [data, setData] = useState([]);
     const [layout, setLayout] = useState({});
@@ -126,7 +83,7 @@ function PlotlyLineChart(){
         }
 
     }
-	// make_trace1()
+    // make_trace1()
 
     let G = {};
 
@@ -198,7 +155,7 @@ function PlotlyLineChart(){
     make_trace0();
 
     const draw_chart = useCallback(
-            ()=> {
+        () => {
             let temp_data = JSON.parse(JSON.stringify(traces));
             let colors = JSON.parse(JSON.stringify(line_colors));
 
@@ -237,7 +194,7 @@ function PlotlyLineChart(){
             //     chart_animate();
             // });
 
-        },[]
+        }, []
     );
 
 
@@ -247,8 +204,9 @@ function PlotlyLineChart(){
 
     return (
         <div className="chart-container">
-            <Plot data={data} layout={layout} config={config} useResizeHandler className="w-full"/>
+            <Plot data={data} layout={layout} config={config} useResizeHandler className="w-full" />
         </div>
     )
 }
-export default PlotlyChart;
+
+export default LineChart;

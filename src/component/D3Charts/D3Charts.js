@@ -1,15 +1,15 @@
 import React, { useState, useEffect }  from 'react';
 import * as d3 from 'd3'; 
-import './D3Chart.scss';
+import './D3Charts.scss';
 
-function D3Chart(props) {
+function D3Charts(props) {
     
     // const [data, setData] = useState([]);
     const [chart_idx_arr, setChartIdxArr] = useState([1,2,3]);
 
     useEffect(() => {
         // 使用瀏覽器 API 更新文件標題
-        document.title = `Bar Chart Race`;
+        document.title = `D3 Charts`;
     });
 
     // render
@@ -92,4 +92,4 @@ function BarchartBasic(props){
     )
 }
 
-export default D3Chart;
+export default D3Charts;

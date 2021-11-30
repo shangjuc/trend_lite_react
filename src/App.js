@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Navbar from './component/Navbar/Navbar';
 import Hotpost from './component/Hotpost/Hotpost';
-import PlotlyChart from './component/PlotlyChart/PlotlyChart';
-import D3Chart from './component/D3Chart/D3Chart';
+import PlotlyCharts from './component/PlotlyCharts/PlotlyCharts';
+import D3Charts from './component/D3Charts/D3Charts';
 import Timer from './component/Timer/Timer';
 import './App.scss';
 
@@ -15,8 +15,8 @@ function App() {
         <Route path="/" element={<Timer />} />
         <Route path="/Timer" element={<Timer />} />
         <Route path="/HotPost" element={<Hotpost />} />
-        <Route path="/D3Chart" element={<D3Chart />} />
-        <Route path="/PlotlyChart" element={<PlotlyChart />} />
+        <Route path="/D3Charts" element={<D3Charts />} />
+        <Route path="/PlotlyCharts" element={<PlotlyCharts />} />
       </Routes>
     </div>
   );
