@@ -20,11 +20,13 @@ function Navbar(props) {
         let nav_value = e.target.getAttribute("nav_value")
         if (nav_index !== nav_value){
             setNavIdx(nav_value);
+            // window.location.href = "/" + nav_value;
+
         } else {
             setNavIdx('');
         }
     } 
-    const nav_btn_arr = ['Timer','HotPost'];
+    const nav_btn_arr = ['Timer', 'HotPost', 'D3Chart','PlotlyChart'];
     const nav_btn_arr2 = ['I','J','K'];
 
     return (
@@ -37,6 +39,7 @@ function Navbar(props) {
                             {val}
                         </Link>
                     </li>)}
+                
                 {nav_btn_arr2.map(val => 
                     <NavDropButton key={val} nav_value={val} click_navbtn={click_navdropbtn} nav_index={nav_index} />)}
             </ul>

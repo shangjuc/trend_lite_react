@@ -35,14 +35,14 @@ class Clock2 extends React.Component {
     }
 }
 
-function Clock(props) {
-    return (
-        <div className="container">
-            <h1>Hello, {props.user}</h1>
-            <h2>{props.date.toLocaleTimeString()}</h2>
-        </div>
-    )
-}
+// function Clock(props) {
+//     return (
+//         <div className="container">
+//             <h1>Hello, {props.user}</h1>
+//             <h2>{props.date.toLocaleTimeString()}</h2>
+//         </div>
+//     )
+// }
 
 function tick() {
     if (!document.getElementById('timer')){
