@@ -29,11 +29,11 @@ function BarchartBasic(props){
     useEffect(() => {
         // set the dimensions and margins of the graph
         const margin = { top: 10, right: 30, bottom: 30, left: 40 },
-            width = 660 - margin.left - margin.right,
+            width = 960 - margin.left - margin.right,
             height = 400 - margin.top - margin.bottom;
 
         // append the svg object to the body of the page
-        const svg = d3.select(`#barchartrace${props.chart_idx} svg`)
+        const svg = d3.select(`#barchart-basic${props.chart_idx} svg`)
             // .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -74,7 +74,8 @@ function BarchartBasic(props){
                 .join("rect")
                 .attr("x", 1)
                 .attr("transform", function (d) { return `translate(${x(d.x0)} , ${y(d.length)})` })
-                .attr("width", function (d) { return x(d.x1) - x(d.x0) })
+                // .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1})
+                .attr("width", function (d) { return (x(d.x1) - x(d.x0)) * .8})
                 .attr("height", function (d) { return height - y(d.length); })
                 .style("fill", props.color)
 
@@ -84,7 +85,7 @@ function BarchartBasic(props){
     // render
     return (
         <div className="chart-container">
-            <div id={`barchartrace${props.chart_idx}`}>
+            <div id={`barchart-basic${props.chart_idx}`}>
                 <svg></svg>
             </div>
         </div>
