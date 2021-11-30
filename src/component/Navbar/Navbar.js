@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './Navbar.scss';
 import NavDropButton from './NavDropButton';
@@ -10,7 +11,7 @@ function Navbar(props) {
         let nav_value = e.target.getAttribute("nav_value")
         if (nav_index !== nav_value){
             setNavIdx(nav_value);
-            window.location.href = "/" + nav_value;
+            // window.location.href = "/" + nav_value;
         } else {
             setNavIdx('');
         }
@@ -32,7 +33,9 @@ function Navbar(props) {
             <ul nav_index={nav_index}>   
                 {nav_btn_arr.map(val =>
                     <li key={val} className={'nav-btn unselectable '} onClick={click_navbtn} nav_value={val} >
-                        <span nav_value={val}>{val}</span>
+                        <Link className="nav-link" to={"/"+val}>
+                            {val}
+                        </Link>
                     </li>)}
                 {nav_btn_arr2.map(val => 
                     <NavDropButton key={val} nav_value={val} click_navbtn={click_navdropbtn} nav_index={nav_index} />)}

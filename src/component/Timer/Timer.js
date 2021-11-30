@@ -45,6 +45,9 @@ function Clock(props) {
 }
 
 function tick() {
+    if (!document.getElementById('timer')){
+        return;
+    }
     ReactDOM.render(
         <Clock2 user={'SJC'} />, 
         document.getElementById('timer')
