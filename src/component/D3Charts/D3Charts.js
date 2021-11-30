@@ -33,8 +33,10 @@ function BarchartBasic(props){
             height = 400 - margin.top - margin.bottom;
 
         // append the svg object to the body of the page
-        const svg = d3.select(`#barchart-basic${props.chart_idx} svg`)
-            // .append("svg")
+        d3.select(`#barchart-basic${props.chart_idx} svg`).remove();
+
+        const svg = d3.select(`#barchart-basic${props.chart_idx}`)
+            .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -42,11 +44,12 @@ function BarchartBasic(props){
                 `translate(${margin.left},${margin.top})`);
 
         // get the data
-        d3.csv("http://localhost:3000/trendapi/basic_linechart.csv").then(function (data) {
+        d3.csv("http://localhost:3000/trendapi/barchart_basic_data.csv").then(function (data) {
 
             // X axis: scale and draw:
             const x = d3.scaleLinear()
                 .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+                // .domain([0, d3.max(data, function (d) { return +d.price })])    
                 .range([0, width]);
             svg.append("g")
                 .attr("transform", `translate(0, ${height})`)
