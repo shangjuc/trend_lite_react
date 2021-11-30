@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from './component/Navbar/Navbar';
 import Hotpost from './component/Hotpost/Hotpost';
 import Timer from './component/Timer/Timer';
