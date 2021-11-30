@@ -204,7 +204,7 @@ function LineChart() {
 
     return (
         <div className="chart-container">
-            <Plot data={data} layout={layout} config={config} useResizeHandler className="w-full" />
+            <Plot data={data} layout={layout} config={config} useResizeHandler className="w-full h-full" />
         </div>
     )
 }
