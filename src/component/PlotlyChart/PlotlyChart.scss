@@ -6,16 +6,12 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  .page-btn-container{
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px 0px;
+  .js-plotly-plot .plotly .main-svg{
+    // position: relative;
   }
-  ul {
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    max-width: 1000px;
+  .w-full{
+    width:100%;
   }
+
 }
 
