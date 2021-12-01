@@ -24,7 +24,7 @@ function LineChart() {
     let fixed_data = [];
     // show_fixed_line = false;
 
-    let line_colors = ["blue", "#1b9aac", "lightblue", "purple"];
+    let line_colors = ["#FFB11B", "#1b9aac", "lightblue", "purple"];
     let traces = [];
 
     function make_trace0() {
@@ -104,6 +104,8 @@ function LineChart() {
             tickformat: "%m/%d",
             fixedrange: true,
             // showline: true
+            color: "#FFF",
+
         },
         yaxis: {
             fixedrange: true,
@@ -114,6 +116,7 @@ function LineChart() {
             // domain: [0.5, 1],
             // range: [0,1],
             // dtick: .2
+            color: "#FFF",
 
         },
         yaxis2: {
@@ -142,8 +145,8 @@ function LineChart() {
             y: 1,
             yanchor: "bottom",
         },
-        paper_bgcolor: "#F3F3F3",
-        plot_bgcolor: "#F3F3F3",
+        paper_bgcolor: "transparent",
+        plot_bgcolor: "transparent",
     };
 
     G.config = {

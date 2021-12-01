@@ -1,5 +1,7 @@
 import { useState, useEffect }  from 'react';
-import BarchartBasic from './BasicBarchart';
+import Barchart1 from './Barchart1';
+import Barchart2 from './Barchart2';
+import BarchartRace from './BarchartRace';
 import './D3Charts.scss';
 
 function D3Charts(props) {
@@ -16,8 +18,9 @@ function D3Charts(props) {
     if (true){
         return (
             <div>
-                <BarchartBasic chart_idx={chart_idx_arr[0]} color="#69b3a2"/>
-                {/* <BarchartBasic chart_idx={chart_idx_arr[1]} color="red"/> */}
+                <Barchart1 chart_idx={chart_idx_arr[0]} color="#69b3a2"/>
+                {/* <Barchart2 chart_idx={chart_idx_arr[1]}/> */}
+                {/* <BarchartRace chart_idx={chart_idx_arr[2]}/> */}
             </div>
         )
     } 

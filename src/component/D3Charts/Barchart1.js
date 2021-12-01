@@ -1,9 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
-import * as d3 from 'd3';
-import './D3Charts.scss';
+import { useEffect } from 'react';
+import * as d3 from 'd3v6';
 
-function BarchartBasic(props) {
+function Barchart1(props) {
 
     useEffect(() => {
         // set the dimensions and margins of the graph
@@ -74,4 +73,4 @@ function BarchartBasic(props) {
     )
 }
 
-export default BarchartBasic;
+export default Barchart1;
