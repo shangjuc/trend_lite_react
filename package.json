@@ -10,6 +10,7 @@
     "d3v6": "npm:d3@^6.7.0",
     "date-fns": "^2.26.0",
     "date-fns-tz": "^1.2.2",
+    "leaflet": "^1.7.1",
     "moment": "^2.29.1",
     "plotly.js": "^2.6.4",
     "plotly.js-dist": "^2.6.4",
