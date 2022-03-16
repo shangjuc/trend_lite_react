@@ -67,7 +67,7 @@ class LeafletMap extends React.Component {
         // 設定 height 顯示地圖 ( 預設值 height : 0 )
         return (
             <div className="map-container">
-                <div id="mapid" style={{ height: "700px", width: "1500px" }} />
+                <div id="mapid" style={{ minHeight: "500px" }} />
             </div>
 
         )
