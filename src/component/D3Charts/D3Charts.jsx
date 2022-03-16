@@ -1,7 +1,7 @@
 import { useState, useEffect }  from 'react';
-import Barchart1 from './Barchart1';
-import Barchart2 from './Barchart2';
-import BarchartRace from './BarchartRace';
+import Barchart1 from './Barchart1.jsx';
+import Barchart2 from './Barchart2.jsx';
+import BarchartRace from './BarchartRace.jsx';
 import './D3Charts.scss';
 
 function D3Charts(props) {

@@ -114,6 +114,7 @@ function Hotpost(props) {
         }
         
         fetch_data();        
+
     }, [query, count_pages, do_pagination]);
 
 
@@ -170,7 +171,7 @@ function Hotpost(props) {
     } else {
         return(
             <div className="hotpost-container">
-                Loading...
+                Loading Hotposts...
             </div>
         )
     }

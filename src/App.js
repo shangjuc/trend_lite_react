@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from './component/Navbar/Navbar';
 import Hotpost from './component/Hotpost/Hotpost';
 import PlotlyCharts from './component/PlotlyCharts/PlotlyCharts';
-import D3Charts from './component/D3Charts/D3Charts';
+import D3Charts from './component/D3Charts/D3Charts.jsx';
 import Timer from './component/Timer/Timer.jsx';
 
 import './App.scss';
