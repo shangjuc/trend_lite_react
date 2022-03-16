@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './Navbar.scss';
-import NavDropButton from './NavDropButton';
+import NavDropButton from './NavDropButton.jsx';
 
 function Navbar(props) {
     const [nav_index, setNavIdx] = useState('');

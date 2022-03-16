@@ -1,6 +1,6 @@
 import  { useEffect  }  from 'react';
 import Plot from 'react-plotly.js';
-import LineChart from './Linechart';
+import LineChart from './Linechart.jsx';
 import './PlotlyCharts.scss';
 
 function PlotlyCharts(props) {

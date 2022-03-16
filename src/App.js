@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Routes, Route } from "react-router-dom";
-import Navbar from './component/Navbar/Navbar';
-import Hotpost from './component/Hotpost/Hotpost';
-import PlotlyCharts from './component/PlotlyCharts/PlotlyCharts';
+import Navbar from './component/Navbar/Navbar.jsx';
+import Hotpost from './component/Hotpost/Hotpost.jsx';
+import PlotlyCharts from './component/PlotlyCharts/PlotlyCharts.jsx';
 import D3Charts from './component/D3Charts/D3Charts.jsx';
 import Timer from './component/Timer/Timer.jsx';
 

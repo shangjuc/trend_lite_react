@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback }  from 'react';
 import { format } from 'date-fns'
 // import { moment } from 'moment';
 import './Hotpost.scss';
-import PageButton from './PageBtn';
-import TitleView from './TitleView';
+import PageButton from './PageBtn.jsx';
+import TitleView from './TitleView.jsx';
 
 function Hotpost(props) {
     

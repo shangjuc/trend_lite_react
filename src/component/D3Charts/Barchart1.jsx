@@ -89,7 +89,7 @@ function Barchart1(props) {
 
         }
         fetch_data()
-    }, [query]);
+    }, [query, props.color, props.chart_idx]);
 
     // render
     if (net_status === 200) {
