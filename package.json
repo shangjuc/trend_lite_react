@@ -23,6 +23,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "start": "react-scripts start",
     "dev_w": "set PORT=9527 && react-scripts start",
     "dev_m": "export PORT=9527 && react-scripts start",
     "build": "react-scripts build",

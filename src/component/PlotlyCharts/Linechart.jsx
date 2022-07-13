@@ -76,7 +76,7 @@ function LineChart() {
         traces[0].line.dash = "5px 5px";
         traces[0].hoverinfo = "name+y";
 
-        traces[1].mode = 'lines+markers';
+        // traces[1].mode = 'lines+markers';
 
         for (let i = 0; i < traces[0].y.length; i++) {
             traces[0].y[i] = fixed_num;
