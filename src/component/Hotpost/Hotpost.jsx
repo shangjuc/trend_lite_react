@@ -60,7 +60,7 @@ function Hotpost(props) {
 
     useEffect(() => {
         function getFetchUrl() {
-            return 'http://localhost:3000/trendapi/api_analytics_hotpost?query=' + query;
+            return 'http://localhost:3000/trendapi/api_analytics_hotposts?query=' + query;
         }
 
         async function fetch_data() {
@@ -107,8 +107,9 @@ function Hotpost(props) {
                 count_pages(data);
                 do_pagination(1, data);
 
-            } catch {
+            } catch(err) {
                 setNetStatus(400);
+                console.log(err)
             }
 
         }
