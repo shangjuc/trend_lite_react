@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
-
 import * as d3 from 'd3v6';
+import Papa from 'papaparse';
 
 function Barchart1(props) {
     
@@ -16,10 +16,19 @@ function Barchart1(props) {
             }
             setNetStatus(1);
             try {
-                const data = await fetch(getFetchUrl())
-                    .then(r => r.json())
+                await fetch(getFetchUrl())
+                    .then(r => {
+                        console.log(r);
+                        // console.log(r.text());
+
+                        return r.text()
+                    })
+                    .then(v=>
+                        Papa.parse(v)
+                    )
                     .then(function (resp) {
                         setNetStatus(200);
+                        console.log(resp)
                         // set the dimensions and margins of the graph
                         const margin = { top: 10, right: 30, bottom: 30, left: 40 },
                             width = 960 - margin.left - margin.right,
@@ -80,8 +89,8 @@ function Barchart1(props) {
                         
                     })
 
-            } catch{
-                console.log("Error")
+            } catch (err){
+                console.log("Error", err)
                 setNetStatus(400);
             }
 
