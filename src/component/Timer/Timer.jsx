@@ -16,6 +16,7 @@ class Clock2 extends React.Component {
     }
 
     componentDidMount() {
+        
         this.timerID = setInterval(
             () => this.tick(),
             1000
@@ -65,6 +66,7 @@ function tick() {
 
 function Timer() {
     setInterval(tick, 1000);
+    document.title = "Timer"
 
     return ( 
         <div id="timer"></div>
