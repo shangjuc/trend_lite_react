@@ -1,0 +1,13 @@
+
+.page-button{
+  border: 1px solid #FFF;
+  background-color: transparent;
+  color: #FFF;
+  border-radius: 3px;
+  margin: 2px;
+  cursor: pointer;
+  &:hover{
+    background-color: turquoise;
+  }
+
+}

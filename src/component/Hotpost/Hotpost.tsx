@@ -4,12 +4,14 @@ import { format } from 'date-fns'
 import './Hotpost.scss';
 import PageButton from './PageBtn.jsx';
 import TitleView from './TitleView.jsx';
+import PfButton from './PFBtn';
 
 function Hotpost(props) {
     
     const [data_full_FB, setDataFull_FB] = useState([]);
     const [data_full_FORUM, setDataFull_FORUM] = useState([]);
     const [page_btns, setPageBtns] = useState([]);
+    const [pf_btns, setPfBtns] = useState(['FB', 'FORUM']);
     const [pf, setPF] = useState("");
     const [data_shown, setDataShown] = useState([]);
     // const [max_per_page, setMaxPerPage] = useState(10);
@@ -26,7 +28,7 @@ function Hotpost(props) {
     const count_pages = useCallback(
         (data) => {
             let last_page = Math.floor(data.length / max_per_page);
-            let btn_arr = [];
+            let btn_arr:any = [];
             for (let i = 0; i < last_page; i++) {
                 btn_arr.push(i + 1);
             }
@@ -60,9 +62,9 @@ function Hotpost(props) {
 
     useEffect(() => {
         function getFetchUrl() {
-            // return 'http://localhost:3000/trendapi/api_analytics_hotposts?query=' + query;
+            return '/json/hotpost.json'
+            return 'http://localhost:3000/trendapi/api_analytics_hotposts?query=' + query;
 
-            return './hotpost.json'
         }
 
         async function fetch_data() {
@@ -74,7 +76,7 @@ function Hotpost(props) {
                         
                         if ("forum_raw" in resp.data[0]) {
                             let raw = resp.data[0]["forum_raw"];
-                            let temp_arr = [];
+                            let temp_arr:any = [];
                             for (let i = 0; i < raw.length; i++) {
                                 let item = raw[i];
                                 item.pf = "FORUM";
@@ -89,7 +91,7 @@ function Hotpost(props) {
                         }
                         if ("fb_raw" in resp.data[0]) {
                             let raw = resp.data[0]["fb_raw"];
-                            let temp_arr = [];
+                            let temp_arr:any = [];
                             for (let i = 0; i < raw.length; i++) {
                                 let item = raw[i];
                                 item.pf = "FB";
@@ -132,8 +134,8 @@ function Hotpost(props) {
 
     }
 
-    const click_pf = (e) => {
-        let pf = String(e.target.getAttribute("pf"));
+    const click_pf = (e: { target: { getAttribute: (arg0: string) => any; }; }) => {
+        let pf:string = String(e.target.getAttribute("pf"));
         setPF(pf);
         if(pf === "FB"){
             count_pages(data_full_FB)
@@ -152,8 +154,10 @@ function Hotpost(props) {
             { net_status === 200 &&
                 <>
                     <div className="page-btn-container">
-                        <button onClick={click_pf} pf="FB">FB</button>
-                        <button onClick={click_pf} pf="FORUM">FORUM</button>
+                        {pf_btns.map(pf=>
+                        <PfButton key={pf} click_pf={click_pf} pf={pf}/>)}
+                        {/* <button onClick={click_pf} pf="FB">FB</button>
+                        <button onClick={click_pf} pf="FORUM">FORUM</button> */}
                     </div>
                     <div className="page-btn-container">
                         {page_btns.map(item => 
@@ -162,7 +166,7 @@ function Hotpost(props) {
                     <ul>
                         <TitleView hp_item={{hash:"#",pf:"渠道",content:"內容",time:'時間'}}
                         />
-                        {data_shown.map((item, i) => 
+                        {data_shown.map((item:any, i) => 
                         <TitleView key={item.hash} hp_item={item} />)
                         }
                     </ul>
