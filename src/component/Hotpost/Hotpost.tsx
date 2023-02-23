@@ -6,7 +6,7 @@ import PageButton from './PageBtn.jsx';
 import TitleView from './TitleView.jsx';
 import PfButton from './PFBtn';
 
-function Hotpost(props) {
+function Hotpost(props:any) {
     
     const [data_full_FB, setDataFull_FB] = useState([]);
     const [data_full_FORUM, setDataFull_FORUM] = useState([]);
@@ -26,7 +26,7 @@ function Hotpost(props) {
     });
 
     const count_pages = useCallback(
-        (data) => {
+        (data:any) => {
             let last_page = Math.floor(data.length / max_per_page);
             let btn_arr:any = [];
             for (let i = 0; i < last_page; i++) {
@@ -47,7 +47,7 @@ function Hotpost(props) {
     // }
 
     const do_pagination = useCallback(
-        (page_num, data) => {
+        (page_num:any, data:any) => {
             let new_rows = data.slice((page_num - 1) * max_per_page, page_num * max_per_page)
             setDataShown(new_rows);
         },
@@ -124,7 +124,7 @@ function Hotpost(props) {
 
 
 
-    const click_page = (e) =>{
+    const click_page = (e:any) =>{
         let page_num = Number(e.target.getAttribute("page_num"));
         if (pf === "FB") {
             do_pagination(page_num, data_full_FB);

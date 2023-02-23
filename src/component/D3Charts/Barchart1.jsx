@@ -9,11 +9,13 @@ function Barchart1(props) {
     const query = "";
     useEffect(() => {
 
+        function getFetchUrl() {
+            return "/csv/barchart_basic_data.csv"
+            return "http://localhost:3000/trendapi/barchart_basic_data.csv";
+        }
 
         async function fetch_data() {
-            function getFetchUrl() {
-                return "http://localhost:3000/trendapi/barchart_basic_data.csv";
-            }
+            
             setNetStatus(1);
             try {
                 await fetch(getFetchUrl())
@@ -46,7 +48,8 @@ function Barchart1(props) {
                                 `translate(${margin.left},${margin.top})`);
 
                         // get the data
-                        d3.csv("http://localhost:3000/trendapi/barchart_basic_data.csv").then(function (data) {
+                        
+                        d3.csv(getFetchUrl()).then(function (data) {
 
                             // X axis: scale and draw:
                             const x = d3.scaleLinear()
