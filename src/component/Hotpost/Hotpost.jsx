@@ -60,7 +60,9 @@ function Hotpost(props) {
 
     useEffect(() => {
         function getFetchUrl() {
-            return 'http://localhost:3000/trendapi/api_analytics_hotposts?query=' + query;
+            // return 'http://localhost:3000/trendapi/api_analytics_hotposts?query=' + query;
+
+            return './hotpost.json'
         }
 
         async function fetch_data() {
@@ -143,39 +145,38 @@ function Hotpost(props) {
     }
 
     // render
-    if (net_status === 200){
-        return (
-            <div className="hotpost-container">
-                <div className="page-btn-container">
-                    <button onClick={click_pf} pf="FB">FB</button>
-                    <button onClick={click_pf} pf="FORUM">FORUM</button>
-                </div>
-                <div className="page-btn-container">
-                    {page_btns.map(item => 
-                    <PageButton key={item} click_page = { click_page } page_num = {item} />)}
-                </div>
-                <ul>
-                    <TitleView hp_item={{hash:"#",pf:"渠道",content:"內容",time:'時間'}}
-                    />
-                    {data_shown.map((item, i) => 
-                    <TitleView key={item.hash} hp_item={item} />)
-                    }
-                </ul>
-            </div>
-        )
-    } else if (net_status === 400){
+    
         return(
-            <div className="hotpost-container">
-                Error!
-            </div>
+       
+        <div className="hotpost-container">
+            { net_status === 200 &&
+                <>
+                    <div className="page-btn-container">
+                        <button onClick={click_pf} pf="FB">FB</button>
+                        <button onClick={click_pf} pf="FORUM">FORUM</button>
+                    </div>
+                    <div className="page-btn-container">
+                        {page_btns.map(item => 
+                        <PageButton key={item} click_page = { click_page } page_num = {item} />)}
+                    </div>
+                    <ul>
+                        <TitleView hp_item={{hash:"#",pf:"渠道",content:"內容",time:'時間'}}
+                        />
+                        {data_shown.map((item, i) => 
+                        <TitleView key={item.hash} hp_item={item} />)
+                        }
+                    </ul>
+                </>
+            }
+            { net_status !== 200 && 
+                <span>{ net_status === 400 ? 'Error!' : 'Loading Hotposts...'}</span>
+            }
+                
+        </div>
+            
+        
         )   
-    } else {
-        return(
-            <div className="hotpost-container">
-                Loading Hotposts...
-            </div>
-        )
-    }
+    
 }
 
 
