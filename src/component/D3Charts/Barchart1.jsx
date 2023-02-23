@@ -11,7 +11,7 @@ function Barchart1(props) {
 
         function getFetchUrl() {
             return "/csv/barchart_basic_data.csv"
-            return "http://localhost:3000/trendapi/barchart_basic_data.csv";
+            // return "http://localhost:3000/trendapi/barchart_basic_data.csv";
         }
 
         async function fetch_data() {

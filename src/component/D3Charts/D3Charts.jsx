@@ -19,8 +19,8 @@ function D3Charts(props) {
         return (
             <div>
                 <Barchart1 chart_idx={chart_idx_arr[0]} color="#69b3a2"/>
-                {/* <Barchart2 chart_idx={chart_idx_arr[1]}/> */}
-                {/* <BarchartRace chart_idx={chart_idx_arr[2]}/> */}
+                <Barchart2 chart_idx={chart_idx_arr[1]}/>
+                <BarchartRace chart_idx={chart_idx_arr[2]}/>
             </div>
         )
     } 

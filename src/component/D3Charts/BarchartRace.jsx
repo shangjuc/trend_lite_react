@@ -5,10 +5,13 @@ import * as d3 from 'd3';
 function BarchartRace(props) {
 
     useEffect(() => {
-
+        function getFetchUrl() {
+            return "/csv/barchart_race_data.csv"
+            // return "http://localhost:3000/trendapi/barchart_race_data.csv";
+        }
 
         const container = `#barchart-basic${props.chart_idx}`;
-        d3.csv("http://localhost:3000/trendapi/barchart_race_data.csv").then(function (data) {
+        d3.csv(getFetchUrl()).then(function (data) {
             d3.group(data, d => d.name);
             
 
