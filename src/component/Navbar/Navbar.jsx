@@ -26,7 +26,7 @@ function Navbar(props) {
             setNavIdx('');
         }
     } 
-    const nav_btn_arr = ['Timer', 'HotPost', 'D3Charts','PlotlyCharts', 'LeafletMap'];
+    const nav_btn_arr = ['Timer', 'HotPost', 'D3Charts','PlotlyCharts', 'LeafletMap', 'WordCloud'];
     const nav_btn_arr2 = ['I','J','K'];
 
     return (
