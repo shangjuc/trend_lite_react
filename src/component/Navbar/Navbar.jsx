@@ -29,6 +29,8 @@ function Navbar(props) {
     const nav_btn_arr = ['Timer', 'HotPost', 'D3Charts','PlotlyCharts', 'LeafletMap', 'WC'];
     const nav_btn_arr2 = ['I','J','K'];
 
+    // dev_SJC
+
     return (
         <div id="navbar">
             <img className="App-logo" src={logo} alt="logo"></img>
