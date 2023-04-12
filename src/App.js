@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Routes, Route } from "react-router-dom";
-import Navbar from './component/Navbar/Navbar.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
 import Timer from './components/Timer/Timer.jsx';
-import Hotpost from './component/Hotpost/Hotpost.tsx';
+import Hotpost from './components/Hotpost/Hotpost.tsx';
 import PlotlyCharts from './components/PlotlyCharts/PlotlyCharts.jsx';
-import D3Charts from './component/D3Charts/D3Charts.jsx';
-import LeafletMap from './component/LeafletMap/LeafletMap.jsx';
+import D3Charts from './components/D3Charts/D3Charts.jsx';
+import LeafletMap from './components/LeafletMap/LeafletMap.jsx';
 import WC from './components/WC/WC'
 import './App.scss';
 

@@ -35,7 +35,7 @@ const Wc = () => {
   }, [])
   
   return  (
-    <div className="WC" data-testid="Wc">
+    <div className="WC flex justify-center " >
       <canvas ></canvas>
     </div>
   )

@@ -32,7 +32,7 @@ function Navbar(props) {
     // dev_SJC
 
     return (
-        <div id="navbar">
+        <div id="navbar" className='flex justify-center'>
             <img className="App-logo" src={logo} alt="logo"></img>
             <ul nav_index={nav_index}>   
                 {nav_btn_arr.map(val =>
