@@ -39,7 +39,8 @@
     "dev_m": "export PORT=9527 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "liveserver": "cd build && live-server --entry-file='./index.html'"
   },
   "eslintConfig": {
     "extends": [

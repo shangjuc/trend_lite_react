@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import WordCloud from 'wordcloud';
 import './WC.scss';
 
@@ -35,7 +35,7 @@ const Wc = () => {
   }, [])
   
   return  (
-    <div className="WC flex justify-center " >
+    <div className="WC flex justify-center" >
       <canvas ></canvas>
     </div>
   )
